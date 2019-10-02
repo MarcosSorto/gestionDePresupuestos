@@ -1,0 +1,19 @@
+{
+  "name": "gestion_presupuesto",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de presupuestos Clase seminario de software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosSorto/gestionDePresupuestos.git"
+  },
+  "author": "Marcos Elí Sorto Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcosSorto/gestionDePresupuestos/issues"
+  },
+  "homepage": "https://github.com/MarcosSorto/gestionDePresupuestos#readme"
+}
