@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/MarcosSorto/gestionDePresupuestos/issues"
   },
-  "homepage": "https://github.com/MarcosSorto/gestionDePresupuestos#readme"
+  "homepage": "https://github.com/MarcosSorto/gestionDePresupuestos#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
 }
