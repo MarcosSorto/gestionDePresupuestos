@@ -14,6 +14,10 @@ const perfilSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    ocupacion:{
+        type: String,
+        trim: true
+    },
     sueldo: {
         type: String,
         default: 0,

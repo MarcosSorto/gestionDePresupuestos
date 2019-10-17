@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
+const flash = require("connect-flash");
 
 // habilitamos el archivo de variables de entorno (variables.env)
 require('dotenv').config({path: 'variables.env'});
@@ -44,6 +45,14 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
+
+// para los mensajes de alerta
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.messages = flash.messages;
+  next();
+});
 
 app.use("/", router());
 
