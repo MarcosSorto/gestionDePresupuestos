@@ -7,7 +7,7 @@ const shortid = require('shortid');
 const perfilSchema = new mongoose.Schema({
     nombre: {
         type: String,
-        required: "El nombre del usuario esrequerido.",
+        required: "El nombre del usuario es requerido.",
         trim: true
     },
     apellido: {
@@ -17,16 +17,17 @@ const perfilSchema = new mongoose.Schema({
     sueldo: {
         type: String,
         default: 0,
-        required: "El sueldo del usuario esrequerido.",
+        required: "El sueldo del usuario es requerido.",
         trim: true
     },
     imagen: {
         type: String,
-        trim: true
+        trim: true,
+        default: "imagenPerfil"
     },
-    usuario: {
+    correo: {
         type: String,
-        required: "Se requiere de un nombre de usuario",
+        required: "Se requiere de un correo eletrónico",
         trim: true
     },
     password: {
@@ -51,4 +52,4 @@ perfilSchema.pre('save',function(next){
 });
 
 //exportamos el model
-module.exports = mongoose.model('Perfil',perfilSchema);
+module.exports = mongoose.model('perfil',perfilSchema);

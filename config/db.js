@@ -1,10 +1,10 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 require('dotenv').config({path: 'variables.env'});
 
 //configurando mongoose
 mongoose.connect(process.env.DATABASE,{
     useNewUrlParser: true,
-    useUnifieldTopology: true
+    useUnifiedTopology: true
 });
 
 mongoose.connection.on('error',error =>{

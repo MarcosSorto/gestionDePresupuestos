@@ -7,7 +7,7 @@ module.exports = () =>{
     router.get('/',principalController.mostrarPrincipal);
 
     router.get('/nuevo_Perfil',perfilController.mostrarFormPerfil );
-   /* router.post('/nuevo_Perfil',perfilController.guardarPerfil);*/
+    router.post('/nuevo_Perfil',perfilController.guardarPerfil);
 
     return router;
 };
