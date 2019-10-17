@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
 exports.mostrarFormPerfil = async( req, res, next)=>{
-    res.render('perfil',{
-        tituloPagina: 'control de presupuestos'
+    res.render('crearPerfil',{
+        tituloPagina: 'control de presupuestos',
+        layout: 'layout2'
+        
     });
 }
 
