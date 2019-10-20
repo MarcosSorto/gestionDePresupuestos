@@ -7,6 +7,9 @@ const perfilController = require("../controllers/perfilController");
 module.exports = () => {
   router.get("/", principalController.mostrarPrincipal);
 
+  // mostramos el dasboard principal
+  router.get("/controPersonal", principalController.mostrarDashUsuario);
+
   router.get("/nuevo_Perfil", perfilController.mostrarFormPerfil);
   router.post(
     "/nuevo_Perfil",
