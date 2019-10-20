@@ -1,0 +1,56 @@
+<main>
+    <form method="POST" action="/nuevo_Perfil">
+        <br>
+        <div>
+            <h3>Datos personales</h3>
+        </div>
+        <div class="row uniform">
+            <div class="6u 12u$(xsmall)">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
+            </div>
+
+            <div class="6u$ 12u$(xsmall)">
+                <label for="Apellido">Apellido</label>
+                <input type="text" name="Apellido" id="Apellido" placeholder="Ingresa tu Apellido" />
+            </div>
+
+            <!-- Break -->
+            <div class="4u 12u$(small)">
+                <label for="ocupacion">a qué te dedicas</label>
+                <input type="text" name="ocupacion" id="ocupacion" placeholder="Ingresa tu ocupación" />
+            </div>
+            <div class="4u 12u$(small)">
+                <label for="imagen">Selecciona una imagen para tu perfil</label>
+                <input type='file' name="imagen" />
+            </div>
+            <div class="4u 12u$(small)">
+                <label for="sueldo">Sueldo mensual</label>
+                <input type="number" min="1" pattern="^[0-9]+" name="sueldo" id="sueldo"
+                    placeholder="Ingresa tu sueldo" />
+            </div>
+            <!-- Break -->
+
+            <div class="12u$">
+                <div class="select-wrapper">
+                    <label for="correo">Correo eletrónico</label>
+                    <input type="email" name="correo" id="correo" placeholder="tucorreo@escribe.com" />
+                </div>
+            </div>
+            <div class="6u 12u$(xsmall)">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password" placeholder="Ingresa una contraseña" />
+            </div>
+            <div class="6u 12u$(xsmall)">
+                <label for="confirmPassword"> Confirmar Contraseña</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Repite tu contraseña" />
+            </div>
+
+            <!-- Break -->
+            <div class="12u$">
+                <input type="submit" value="Guardar Cambios" />
+                <imput type="submit" value="Cancelar" />
+            </div>
+        </div>
+    </form>
+</main>

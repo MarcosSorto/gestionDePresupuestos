@@ -1,18 +1,31 @@
 // definimos las instancias a utilizar.
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+
+//importamos la configuración de conexión a la base de datos
 require("./config/db");
-const express = require('express');
+
+//configuración de handlebars cono template engine.
+const express = require("express");
 const exphbs = require("express-handlebars");
+
+// utilizamos path para la definición de rutas
 const path = require("path");
+
+//Importar el módulo para subir archivos con express-fileUpload
+const fileUpload = require("express-fileupload");
+
+//importamos las rutas de nevagación
 const router = require("./routes/index");
 const cookieParser = require("cookie-parser");
+
+// iportamos sessión para configuración de inicios de sesión
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
 
 // habilitamos el archivo de variables de entorno (variables.env)
-require('dotenv').config({path: 'variables.env'});
+require("dotenv").config({ path: "variables.env" });
 
 const app = express();
 
@@ -22,16 +35,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Habilitar Handlebars como Template Engine
 app.engine(
-    "handlebars",
-    exphbs({
-      defaultLayout: "layout",
-    })
-  );
-  
-  app.set("view engine", "handlebars");
+  "handlebars",
+  exphbs({
+    defaultLayout: "layout"
+  })
+);
 
-  // Definimos ruta para archivos estáticos
+app.set("view engine", "handlebars");
+
+// Definimos ruta para archivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
+
+//Habilitamos funcionalidad de fileUpload para la carga de archivos.
+app.use(fileUpload());
 
 // Creación de la sesión y de la cookie
 app.use(cookieParser());
