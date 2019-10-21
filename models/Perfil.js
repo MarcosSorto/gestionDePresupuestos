@@ -28,7 +28,7 @@ const perfilSchema = new mongoose.Schema({
   imagen: {
     type: String,
     trim: true,
-    default: "imagenPerfil"
+    default: "defecto.jpg"
   },
   correo: {
     type: String,

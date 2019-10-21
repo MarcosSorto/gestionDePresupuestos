@@ -1,24 +1,26 @@
 <main>
-    <form method="POST" action="/nuevo_Perfil">
+    <form method="POST" action="/editar_Perfil">
         <br>
         <div>
-            <h3>Datos personales</h3>
+            <h3>Editar tu Perfil</h3>
         </div>
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
+                <input type="text" name="nombre" id="nombre" value="{{elUsuario.nombre}}"
+                    placeholder="Ingresa tu nombre" />
             </div>
 
             <div class="6u$ 12u$(xsmall)">
                 <label for="Apellido">Apellido</label>
-                <input type="text" name="Apellido" id="Apellido" placeholder="Ingresa tu Apellido" />
+                <input type="text" name="Apellido" id="Apellido" value="{{elUsuario.apellido}}"
+                    placeholder="Ingresa tu Apellido" />
             </div>
 
             <!-- Break -->
             <div class="4u 12u$(small)">
                 <label for="ocupacion">a qué te dedicas</label>
-                <input type="text" name="ocupacion" id="ocupacion" placeholder="Ingresa tu ocupación" />
+                <input type="text" name="ocupacion" id="ocupacion" value="{{elUsuario.ocupacion}}" placeholder="Ingresa tu ocupación" />
             </div>
             <div class="4u 12u$(small)">
                 <label for="imagen">Selecciona una imagen para tu perfil</label>

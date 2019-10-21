@@ -14,7 +14,8 @@ const slug = require("slug");
 exports.mostrarFormPerfil = async (req, res, next) => {
   res.render("crearPerfil", {
     tituloPagina: "control de presupuestos",
-    layout: "layout2"
+    layout: "layout2",
+    Accion: "Crear Nuevo Perfil"
   });
 };
 // Guardar datos de un nuevo perfil de usuario
@@ -61,16 +62,26 @@ exports.guardarPerfil = async (req, res, next) => {
   res.redirect("/");
 };
 
+//mostrando el formulario de editar
+exports.mostrarFormEditarPerfil = (req, res) => {
+  const elUsuario = req.user;
+  res.render("editarPerfil", {
+    elUsuario
+  });
+};
 // Guardar actualización de datos de perfil de usuario
 exports.editarPerfil = async (req, res, next) => {
   const perfil = new Perfil(req.body);
 
   // guardamos los datos obtenidos.
+  res.render("proceso de actualizado de información");
 };
 
 // Mostrar el formulario de inicio de sesión
 exports.formularioInicioSesion = (req, res) => {
   res.render("iniciarSesion", {
-    nombrePagina: "Iniciar sesión en control de presupuesto"
+    tituloPagina: "Control de presupuestos",
+    layout: "layout2",
+    Accion: "Iniciar Sesión en Control de presupuestos"
   });
 };

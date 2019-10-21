@@ -12,6 +12,8 @@ module.exports = () => {
   router.get("/controPersonal", principalController.mostrarDashUsuario);
 
   router.get("/nuevo_Perfil", perfilController.mostrarFormPerfil);
+  router.get("/editarPerfil", perfilController.mostrarFormEditarPerfil);
+  router.post("/editarPerfil", perfilController.editarPerfil);
   router.post(
     "/nuevo_Perfil",
     [
@@ -42,6 +44,9 @@ module.exports = () => {
   // Iniciar sesión
   router.get("/iniciarSesion", perfilController.formularioInicioSesion);
   router.post("/iniciarSesion", authController.autenticarUsuario);
+
+  // Cerrar sesión
+  router.get("/cerrarSesion", authController.cerrarSesion);
 
   return router;
 };
