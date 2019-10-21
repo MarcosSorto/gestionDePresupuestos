@@ -23,6 +23,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
+const passport = require("./config/passport");
 
 // habilitamos el archivo de variables de entorno (variables.env)
 require("dotenv").config({ path: "variables.env" });
@@ -37,7 +38,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "layout"
+    defaultLayout: "layout",
+    helpers: require("./helpers/handlebars")
   })
 );
 
@@ -61,6 +63,10 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
+
+// Implementar passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // para los mensajes de alerta
 app.use(flash());

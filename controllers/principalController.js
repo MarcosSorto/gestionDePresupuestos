@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Perfil = mongoose.model("perfil");
 
 exports.mostrarPrincipal = (req, res, next) => {
   res.render("principal", {
@@ -7,9 +8,10 @@ exports.mostrarPrincipal = (req, res, next) => {
 };
 
 exports.mostrarDashUsuario = async (req, res, next) => {
-  // obtenemos todas las categorias de presuuestos seleccionados
+  const elUsuario = req.user;
   res.render("dashUsuario", {
     tituloPagina: "área de control personal",
-    layout: "layout3"
+    layout: "layout3",
+    elUsuario
   });
 };

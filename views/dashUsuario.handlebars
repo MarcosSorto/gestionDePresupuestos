@@ -52,13 +52,14 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="/images/Perfiles/defecto.jpg"
-                                                alt="">
+                                            <img width="42" class="rounded-circle"
+                                                src="/images/Perfiles/{{elUsuario.imagen}}" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
                                             class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">Marcos Elí</button>
+                                            <button type="button" tabindex="0"
+                                                class="dropdown-item">{{elUsuario.nombre}}</button>
                                             <button type="button" tabindex="0" class="dropdown-item"> Editar
                                                 Perfil</button>
 
@@ -76,12 +77,7 @@
                                         Bienvenido
                                     </div>
                                 </div>
-                                <div class="widget-content-right header-user-info ml-3">
-                                    <button type="button"
-                                        class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -576,7 +572,7 @@
                                         <div class="widget-heading">Tu sueldo es de:</div>
                                     </div>
                                     <div class="widget-content-right">
-                                        <div class="widget-numbers text-white"><span>15,000.50</span></div>
+                                        <div class="widget-numbers text-white"><span>{{elUsuario.sueldo}}</span></div>
                                     </div>
                                 </div>
                             </div>

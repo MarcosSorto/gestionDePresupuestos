@@ -3,6 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const principalController = require("../controllers/principalController");
 const perfilController = require("../controllers/perfilController");
+const authController = require("../controllers/authController");
 
 module.exports = () => {
   router.get("/", principalController.mostrarPrincipal);
@@ -37,6 +38,10 @@ module.exports = () => {
     ],
     perfilController.guardarPerfil
   );
+
+  // Iniciar sesión
+  router.get("/iniciarSesion", perfilController.formularioInicioSesion);
+  router.post("/iniciarSesion", authController.autenticarUsuario);
 
   return router;
 };

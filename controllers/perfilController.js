@@ -67,3 +67,10 @@ exports.editarPerfil = async (req, res, next) => {
 
   // guardamos los datos obtenidos.
 };
+
+// Mostrar el formulario de inicio de sesión
+exports.formularioInicioSesion = (req, res) => {
+  res.render("iniciarSesion", {
+    nombrePagina: "Iniciar sesión en control de presupuesto"
+  });
+};
