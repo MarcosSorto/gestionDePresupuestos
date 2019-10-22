@@ -1,7 +1,7 @@
 <main>
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <br><br><br>
-    <form method="POST" action="/editarPerfil">
+    <br><br>
+    <form method="POST" action="/editarPerfil/{{elUsuario.url}}" enctype="multipart/form-data">
         <br>
         <div class="align-center">
             <h3><strong>Editar tu Perfil</strong></h3>
@@ -14,8 +14,8 @@
             </div>
 
             <div class="6u$ 12u$(xsmall)">
-                <label for="Apellido">Apellido</label>
-                <input type="text" name="Apellido" id="Apellido" value="{{elUsuario.apellido}}"
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" value="{{elUsuario.apellido}}"
                     placeholder="Ingresa tu Apellido" />
             </div>
 
@@ -26,12 +26,13 @@
                     placeholder="Ingresa tu ocupación" />
             </div>
             <div class="4u 12u$(small) align-center">
-                <label for="imagen">Imagen Actual</label>
-                <img src="/images/perfiles/defecto.jpg" width="140px" height="140px">
+                <label for="actual">Imagen Actual</label>
+                <img src="/images/perfiles/{{elUsuario.imagen}}" width="140px" height="140px">
+                <input readonly type="hidden" name="actual" value={{elUsuario.imagen}}>
             </div>
             <div class="4u 12u$(small)">
                 <label for="imagen">Selecciona una imagen para tu perfil</label>
-                <input type='file' name="imagen" />
+                <input type='file' name="imagen" id="imagen" />
             </div>
             <!-- Break -->
 

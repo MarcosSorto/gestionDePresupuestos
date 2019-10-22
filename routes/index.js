@@ -13,7 +13,7 @@ module.exports = () => {
 
   router.get("/nuevo_Perfil", perfilController.mostrarFormPerfil);
   router.get("/editarPerfil", perfilController.mostrarFormEditarPerfil);
-  router.post("/editarPerfil", perfilController.editarPerfil);
+  router.post("/editarPerfil/:url", perfilController.editarPerfil);
   router.post(
     "/nuevo_Perfil",
     [

@@ -72,11 +72,67 @@ exports.mostrarFormEditarPerfil = (req, res) => {
   });
 };
 // Guardar actualización de datos de perfil de usuario
-exports.editarPerfil = (req, res, next) => {
-  const perfil = new Perfil(req.body);
+exports.editarPerfil = async (req, res, next) => {
+  const elPerfil = req.body;
+  var laImagen = "";
+  //validamos si se seleccionó otra imagen diferente
+  console.log(req.files);
+  if (req.files) {
+    //  se seleccionó un logo diferente
+    console.log("hay una nueva imagen");
+    //1. guardar la nueva imagen.
+    req.files.imagen.mv(
+      path.join(__dirname, `../public/images/perfiles/${req.files.imagen.name}`)
+    ),
+      err => {
+        if (err) {
+          return res.status(500).send({ message: err });
+        } else {
+          console.log("listo");
+        }
+      };
 
-  // guardamos los datos obtenidos.
-  console.log("llego al controlador");
+    // 2. Eliminamos el logo anterior
+    if (elPerfil.actual.trim() != "defecto.jpg") {
+      fs.unlink(
+        path.join(
+          __dirname,
+          `../public/images/perfiles/${elPerfil.actual.trim()}`
+        ),
+        err => {
+          if (err) throw err;
+          console.log("Borrado completo");
+        }
+      );
+    }
+
+    // 3. identificador de la imagen
+    const url = slug(req.files.imagen.name).toLowerCase();
+    laImagen = `${url}-${shortid.generate()}`;
+
+    // renombramos la imagen con el valor contenido en la base de datos
+    fs.rename(
+      path.join(
+        __dirname,
+        `../public/images/perfiles/${req.files.imagen.name}`
+      ),
+      path.join(__dirname, `../public/images/perfiles/${laImagen}`),
+      function(err) {
+        if (err) console.log("ERROR: " + err);
+      }
+    );
+  } else {
+    console.log("no se realizó ningun cambio");
+    laImagen = "defecto.jpg";
+  }
+  elPerfil.imagen = laImagen;
+  console.log(elPerfil.imagen);
+  // guardamos los cambios registrados
+  perfil = await Perfil.findOneAndUpdate({ url: req.params.url }, elPerfil, {
+    new: true,
+    runValidators: true
+  });
+
   res.redirect("/controPersonal");
 };
 
