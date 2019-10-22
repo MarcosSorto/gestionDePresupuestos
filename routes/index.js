@@ -4,9 +4,22 @@ const { check } = require("express-validator");
 const principalController = require("../controllers/principalController");
 const perfilController = require("../controllers/perfilController");
 const authController = require("../controllers/authController");
+const categoriaController = require("../controllers/categoriaController");
 
 module.exports = () => {
   router.get("/", principalController.mostrarPrincipal);
+
+  // rutas para la categoria
+  router.get("/categoria/nuevaCategoria", categoriaController.nuevaCategoria);
+  router.post(
+    "/categoria/nuevaCategoria",
+    categoriaController.guardarCategoria
+  );
+
+  router.get(
+    "/categoria/listarCategoria",
+    categoriaController.listarCategorias
+  );
 
   // mostramos el dasboard principal
   router.get("/controPersonal", principalController.mostrarDashUsuario);

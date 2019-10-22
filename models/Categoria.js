@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const slug = require("slug");
 const shortid = require("shortid");
-const bcrypt = require("bcrypt");
 
 // Definimos el esquema
 const categoriaSchema = new mongoose.Schema({
@@ -19,6 +18,10 @@ const categoriaSchema = new mongoose.Schema({
   registradoPor: {
     type: String,
     trim: true
+  },
+  estado: {
+    type: Number,
+    default: 1
   },
   url: {
     type: String,
