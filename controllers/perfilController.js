@@ -66,15 +66,18 @@ exports.guardarPerfil = async (req, res, next) => {
 exports.mostrarFormEditarPerfil = (req, res) => {
   const elUsuario = req.user;
   res.render("editarPerfil", {
-    elUsuario
+    elUsuario,
+    layout: "layout4",
+    Accion: "Editar tu perfil"
   });
 };
 // Guardar actualización de datos de perfil de usuario
-exports.editarPerfil = async (req, res, next) => {
+exports.editarPerfil = (req, res, next) => {
   const perfil = new Perfil(req.body);
 
   // guardamos los datos obtenidos.
-  res.render("proceso de actualizado de información");
+  console.log("llego al controlador");
+  res.redirect("/controPersonal");
 };
 
 // Mostrar el formulario de inicio de sesión

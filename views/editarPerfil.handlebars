@@ -1,8 +1,10 @@
 <main>
-    <form method="POST" action="/editar_Perfil">
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <br><br><br>
+    <form method="POST" action="/editarPerfil">
         <br>
-        <div>
-            <h3>Editar tu Perfil</h3>
+        <div class="align-center">
+            <h3><strong>Editar tu Perfil</strong></h3>
         </div>
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
@@ -20,39 +22,40 @@
             <!-- Break -->
             <div class="4u 12u$(small)">
                 <label for="ocupacion">a qué te dedicas</label>
-                <input type="text" name="ocupacion" id="ocupacion" value="{{elUsuario.ocupacion}}" placeholder="Ingresa tu ocupación" />
+                <input type="text" name="ocupacion" id="ocupacion" value="{{elUsuario.ocupacion}}"
+                    placeholder="Ingresa tu ocupación" />
+            </div>
+            <div class="4u 12u$(small) align-center">
+                <label for="imagen">Imagen Actual</label>
+                <img src="/images/perfiles/defecto.jpg" width="140px" height="140px">
             </div>
             <div class="4u 12u$(small)">
                 <label for="imagen">Selecciona una imagen para tu perfil</label>
                 <input type='file' name="imagen" />
             </div>
-            <div class="4u 12u$(small)">
-                <label for="sueldo">Sueldo mensual</label>
-                <input type="number" min="1" pattern="^[0-9]+" name="sueldo" id="sueldo"
-                    placeholder="Ingresa tu sueldo" />
-            </div>
             <!-- Break -->
 
-            <div class="12u$">
-                <div class="select-wrapper">
+            <div class="6u$ 12u$">
+                <div>
                     <label for="correo">Correo eletrónico</label>
-                    <input type="email" name="correo" id="correo" placeholder="tucorreo@escribe.com" />
+                    <input type="email" name="correo" id="correo" placeholder="tucorreo@escribe.com"
+                        value="{{elUsuario.correo}}" />
                 </div>
             </div>
-            <div class="6u 12u$(xsmall)">
-                <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" placeholder="Ingresa una contraseña" />
-            </div>
-            <div class="6u 12u$(xsmall)">
-                <label for="confirmPassword"> Confirmar Contraseña</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Repite tu contraseña" />
+            <div class="6u$ 12u$">
+                <div>
+                    <label for="sueldo">Sueldo mensual</label>
+                    <input type="number" min="1" pattern="^[0-9]+" name="sueldo" id="sueldo"
+                        value="{{elUsuario.sueldo}}" placeholder="Ingresa tu sueldo" />
+                </div>
             </div>
 
             <!-- Break -->
             <div class="12u$">
                 <input type="submit" value="Guardar Cambios" />
-                <imput type="submit" value="Cancelar" />
+                <input type="button" value="cancelar">
             </div>
         </div>
     </form>
+
 </main>
