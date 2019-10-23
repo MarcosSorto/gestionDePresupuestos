@@ -84,7 +84,31 @@ exports.editarCategoria = async (req, res) => {
 };
 
 //Controlador para inhabilitar una categoria
-exports.inhabilitarCategoria = async (req, res) => {};
+exports.inhabilitarCategoria = async (req, res) => {
+  // agregamos el autor de la categoria
+  categoriaModificada.registradoPor = elUsuario._id;
+  categoriaModificada.estado = 0;
+  const categoria = await Categoria.findOneAndUpdate(
+    { url: req.params.url },
+    categoriaModificada,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+};
 
 //Controlador para habilitar una categoria
-exports.habilitarcategoria = async (req, res) => {};
+exports.habilitarcategoria = async (req, res) => {
+  // agregamos el autor de la categoria
+  categoriaModificada.registradoPor = elUsuario._id;
+  categoriaModificada.estado = 1;
+  const categoria = await Categoria.findOneAndUpdate(
+    { url: req.params.url },
+    categoriaModificada,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+};

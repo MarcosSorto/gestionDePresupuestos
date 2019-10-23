@@ -5,6 +5,7 @@ const principalController = require("../controllers/principalController");
 const perfilController = require("../controllers/perfilController");
 const authController = require("../controllers/authController");
 const categoriaController = require("../controllers/categoriaController");
+const presupuestoCotroller = require("../controllers/presupuestoController");
 
 module.exports = () => {
   router.get("/", principalController.mostrarPrincipal);
@@ -30,10 +31,26 @@ module.exports = () => {
     categoriaController.mostrarCategoria
   );
 
-  //guarcar cambios en una categoria
+  //guardar cambios en una categoria
   router.post(
     "/categoria/editarCategoria/:url",
     categoriaController.editarCategoria
+  );
+
+  // listar todos los presupuestos de un usuario
+  router.get(
+    "/presupuesto/listaPresupuestos",
+    presupuestoCotroller.listarPresupuestos
+  );
+  //formulario de crear un nuevo presupuesto
+  router.get(
+    "/presupuesto/nuevoPresupuesto",
+    presupuestoCotroller.formularioCrearPresupuesto
+  );
+  // guardar un nuevo presupuesto
+  router.post(
+    "/presupuesto/nuevoPresupuesto",
+    presupuestoCotroller.guardarPresupuesto
   );
 
   // mostramos el dasboard principal

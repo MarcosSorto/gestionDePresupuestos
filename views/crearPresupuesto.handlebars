@@ -1,0 +1,41 @@
+<main>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <br><br>
+    <form method="POST" action="/presupuesto/nuevoPresupuesto">
+        <br>
+        <div class="align-center">
+            <h3><strong>Crea un nuevo presupuesto</strong></h3>
+        </div>
+        <div class="row uniform">
+            <div class="6u 12u$(xsmall)">
+                <label for="concepto">por concepto de:</label>
+                <input type="text" name="concepto" id="concepto" placeholder="Ingresa el concepto del presupuesto" />
+            </div>
+
+            <div class="6u 12u$(xsmall)">
+                <div class="select-wrapper">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
+                        placeholder="Ingresa tu sueldo" />
+                </div>
+            </div>
+            <div class="12u$">
+                <div class="select-wrapper">
+                    <select name="categoria" id="categoria">
+                        {{#each lasCategorias}}
+                        <option value="{{_id}}">{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Break -->
+            <div class="12u$">
+                <input type="submit" value="Guardar categoria" />
+                <input type="button" value="cancelar">
+            </div>
+        </div>
+    </form>
+
+</main>

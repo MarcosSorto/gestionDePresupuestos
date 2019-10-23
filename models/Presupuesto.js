@@ -14,7 +14,11 @@ const presupuestoSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-
+  cantidad: {
+    type: Number,
+    required: "La cantidad es requerida",
+    trim: true
+  },
   registradoPor: {
     type: String,
     trim: true
