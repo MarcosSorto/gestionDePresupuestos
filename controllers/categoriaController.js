@@ -17,7 +17,8 @@ exports.listarCategorias = async (req, res, next) => {
   res.render("listaCategorias", {
     tituloPagina: "Control de presupuestos",
     layout: "layout3",
-    lasCategorias
+    lasCategorias,
+    elUsuario
   });
 };
 
@@ -28,7 +29,7 @@ exports.nuevaCategoria = (req, res) => {
   });
 };
 
-//controlador para guardar formulario de guardar categoria
+//controlador para mostrar formulario de guardar categoria
 exports.guardarCategoria = async (req, res) => {
   const categoria = new Categoria(req.body);
   const elUsuario = req.user;
@@ -41,3 +42,49 @@ exports.guardarCategoria = async (req, res) => {
   // redireccionamos al dash principal
   res.redirect("/controPersonal");
 };
+
+//controlador para mostrar formulario de editar
+exports.mostrarCategoria = async (req, res) => {
+  // obtenemos el usuario autenticado
+  const elUsuario = req.user;
+
+  // obtenemosl a categoria a editar mediante la url enviada en la dirección
+  const laCategoria = await Categoria.findOne({ url: req.params.url });
+
+  // Si no hay resultados
+  if (!laCategoria) return next();
+
+  res.render("editarInhabilitarCategoria", {
+    layout: "layout4",
+    Accion: "Modifica tus categorias",
+    laCategoria,
+    elUsuario
+  });
+};
+
+//controlador para guardar los datos
+exports.editarCategoria = async (req, res) => {
+  // obtenemos la categoria que se va a editar enviada por la url
+  const categoriaModificada = req.body;
+
+  // obtenemos el usuario actual
+  const elUsuario = req.user;
+  // agregamos el autor de la categoria
+  categoriaModificada.registradoPor = elUsuario._id;
+  const categoria = await Categoria.findOneAndUpdate(
+    { url: req.params.url },
+    categoriaModificada,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+
+  res.redirect("/categoria/listarCategoria");
+};
+
+//Controlador para inhabilitar una categoria
+exports.inhabilitarCategoria = async (req, res) => {};
+
+//Controlador para habilitar una categoria
+exports.habilitarcategoria = async (req, res) => {};

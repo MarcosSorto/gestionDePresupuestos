@@ -14,3 +14,4 @@ mongoose.connection.on("error", error => {
 // importamos los modelos
 require("../models/Perfil");
 require("../models/Categoria");
+require("../models/Presupuesto");

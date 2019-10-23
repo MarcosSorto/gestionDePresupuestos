@@ -10,15 +10,30 @@ module.exports = () => {
   router.get("/", principalController.mostrarPrincipal);
 
   // rutas para la categoria
+  //mostrar el perfil de crear categoria
   router.get("/categoria/nuevaCategoria", categoriaController.nuevaCategoria);
+  //guardar una nueva categoria
   router.post(
     "/categoria/nuevaCategoria",
     categoriaController.guardarCategoria
   );
 
+  //listar las categorias
   router.get(
     "/categoria/listarCategoria",
     categoriaController.listarCategorias
+  );
+
+  //mostrar el perfil de editar la categoria
+  router.get(
+    "/categoria/editarCategoria/:url",
+    categoriaController.mostrarCategoria
+  );
+
+  //guarcar cambios en una categoria
+  router.post(
+    "/categoria/editarCategoria/:url",
+    categoriaController.editarCategoria
   );
 
   // mostramos el dasboard principal

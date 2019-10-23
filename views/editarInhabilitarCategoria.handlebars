@@ -1,0 +1,32 @@
+<main>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <br><br>
+    <form method="POST" action="/categoria/editarCategoria/{{laCategoria.url}}">
+        <br>
+        <div class="align-center">
+            <h3><strong>{{Accion}}</strong></h3>
+        </div>
+        <div class="row uniform">
+            <div class="6u 12u$(xsmall)">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingresa el nombre de la categoria"
+                    value="{{laCategoria.nombre}}" />
+            </div>
+
+            <div class="12u$">
+                <div class="select-wrapper">
+                    <label for="correo">Descripción</label>
+                    <input type="text" name="descripcion" id="descripcion" value="{{laCategoria.descripcion}}"
+                        placeholder="Ingresa una breve descripción de la categoria" />
+                </div>
+            </div>
+
+            <!-- Break -->
+            <div class="12u$">
+                <input type="submit" value="Guardar cambios" />
+                <input type="submit" href="/categoria/listarCategoria" value="Cancelar"></input>
+            </div>
+        </div>
+    </form>
+
+</main>
