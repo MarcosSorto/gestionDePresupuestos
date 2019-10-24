@@ -25,7 +25,7 @@ module.exports = () => {
     categoriaController.listarCategorias
   );
 
-  //mostrar el perfil de editar la categoria
+  //mostrar el formulario de editar la categoria
   router.get(
     "/categoria/editarCategoria/:url",
     categoriaController.mostrarCategoria
@@ -53,6 +53,17 @@ module.exports = () => {
     presupuestoCotroller.guardarPresupuesto
   );
 
+  // formulario para editar un presupuesto
+  router.get(
+    "/presupuesto/editarPresupuesto/:url",
+    presupuestoCotroller.formularioEditarPresupuesto
+  );
+
+  // guardar un presupuesto editado
+  router.post(
+    "/presupuesto/editarPresupuesto/:url",
+    presupuestoCotroller.editarPresupuesto
+  );
   // mostramos el dasboard principal
   router.get("/controPersonal", principalController.mostrarDashUsuario);
 

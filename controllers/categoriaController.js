@@ -44,7 +44,7 @@ exports.guardarCategoria = async (req, res) => {
 };
 
 //controlador para mostrar formulario de editar
-exports.mostrarCategoria = async (req, res) => {
+exports.mostrarCategoria = async (req, res, next) => {
   // obtenemos el usuario autenticado
   const elUsuario = req.user;
 
