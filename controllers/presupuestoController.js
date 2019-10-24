@@ -124,3 +124,15 @@ exports.editarPresupuesto = async (req, res) => {
   );
   res.redirect("/categoria/listarCategoria");
 };
+
+// eliminar un presupuesto
+exports.eliminarPresupuesto = async (req, res) => {
+  // obtenemos  el id del presupuesto
+  const { id } = req.params;
+
+  // obtenemos el presupuesto a eliminar
+  const presupuesto = await Presupuesto.findById(id);
+  presupuesto.remove();
+  // enviamos la respuesta del servidor
+  res.status(200).send("Presupuesto eliminado satifactoriamente");
+};

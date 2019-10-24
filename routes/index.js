@@ -64,6 +64,12 @@ module.exports = () => {
     "/presupuesto/editarPresupuesto/:url",
     presupuestoCotroller.editarPresupuesto
   );
+
+  //eliminar un presupuesto
+  router.delete(
+    "/presupuesto/eliminar/:id",
+    presupuestoCotroller.eliminarPresupuesto
+  );
   // mostramos el dasboard principal
   router.get("/controPersonal", principalController.mostrarDashUsuario);
 
