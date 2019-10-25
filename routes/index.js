@@ -8,84 +8,90 @@ const categoriaController = require("../controllers/categoriaController");
 const presupuestoCotroller = require("../controllers/presupuestoController");
 
 module.exports = () => {
+
   router.get("/", principalController.mostrarPrincipal);
 
-  // rutas para la categoria
+  //----------------------------------------------- rutas para la categoria
+
   //mostrar el perfil de crear categoria
-  router.get("/categoria/nuevaCategoria", categoriaController.nuevaCategoria);
+  router.get("/categoria/nuevaCategoria",authController.verificarUsuario, categoriaController.nuevaCategoria);
+  
   //guardar una nueva categoria
   router.post(
-    "/categoria/nuevaCategoria",
+    "/categoria/nuevaCategoria",authController.verificarUsuario,
     categoriaController.guardarCategoria
   );
 
   //listar las categorias
   router.get(
-    "/categoria/listarCategoria",
+    "/categoria/listarCategoria",authController.verificarUsuario,
     categoriaController.listarCategorias
   );
 
 // listar las categorias inhabilitadas
-router.get('/categoria/inhabilitadas',categoriaController.listarCategoriasInhabilitadas);
+router.get('/categoria/inhabilitadas',authController.verificarUsuario,categoriaController.listarCategoriasInhabilitadas);
 
 // habilitar una categoria inhabilitada
-router.post('/categoria/habilitarCategoria/:url',categoriaController.habilitarcategoria);
+router.post('/categoria/habilitarCategoria/:url',authController.verificarUsuario, categoriaController.habilitarcategoria);
 
   //mostrar el formulario de editar la categoria
   router.get(
-    "/categoria/editarCategoria/:url",
+    "/categoria/editarCategoria/:url",authController.verificarUsuario,
     categoriaController.mostrarCategoria
   );
 
   //guardar cambios en una categoria
   router.post(
-    "/categoria/editarCategoria/:url",
+    "/categoria/editarCategoria/:url",authController.verificarUsuario,
     categoriaController.editarCategoria
   );
   
   // inhabilitar una categoria
-  router.post("/categorias/inhabilitarcategoria/:url",categoriaController.inhabilitarCategoria);
+  router.post("/categorias/inhabilitarcategoria/:url",authController.verificarUsuario,categoriaController.inhabilitarCategoria);
 
+
+  //----------------------------------------------- rutas parapresupuestos
   // listar todos los presupuestos de un usuario
   router.get(
-    "/presupuesto/listaPresupuestos",
+    "/presupuesto/listaPresupuestos",authController.verificarUsuario,
     presupuestoCotroller.listarPresupuestos
   );
 
   //formulario de crear un nuevo presupuesto
   router.get(
-    "/presupuesto/nuevoPresupuesto",
+    "/presupuesto/nuevoPresupuesto",authController.verificarUsuario,
     presupuestoCotroller.formularioCrearPresupuesto
   );
   // guardar un nuevo presupuesto
   router.post(
-    "/presupuesto/nuevoPresupuesto",
+    "/presupuesto/nuevoPresupuesto",authController.verificarUsuario,
     presupuestoCotroller.guardarPresupuesto
   );
 
   // formulario para editar un presupuesto
   router.get(
-    "/presupuesto/editarPresupuesto/:url",
+    "/presupuesto/editarPresupuesto/:url",authController.verificarUsuario,
     presupuestoCotroller.formularioEditarPresupuesto
   );
 
   // guardar un presupuesto editado
   router.post(
-    "/presupuesto/editarPresupuesto/:url",
+    "/presupuesto/editarPresupuesto/:url",authController.verificarUsuario,
     presupuestoCotroller.editarPresupuesto
   );
 
   //eliminar un presupuesto
   router.delete(
-    "/presupuesto/eliminar/:id",
+    "/presupuesto/eliminar/:id",authController.verificarUsuario,
     presupuestoCotroller.eliminarPresupuesto
   );
+  
   // mostramos el dasboard principal
-  router.get("/controPersonal", principalController.mostrarDashUsuario);
+  router.get("/controPersonal",authController.verificarUsuario, principalController.mostrarDashUsuario);
 
   router.get("/nuevo_Perfil", perfilController.mostrarFormPerfil);
-  router.get("/editarPerfil", perfilController.mostrarFormEditarPerfil);
-  router.post("/editarPerfil/:url", perfilController.editarPerfil);
+  router.get("/editarPerfil",authController.verificarUsuario, perfilController.mostrarFormEditarPerfil);
+  router.post("/editarPerfil/:url",authController.verificarUsuario, perfilController.editarPerfil);
   router.post(
     "/nuevo_Perfil",
     [
@@ -118,7 +124,7 @@ router.post('/categoria/habilitarCategoria/:url',categoriaController.habilitarca
   router.post("/iniciarSesion", authController.autenticarUsuario);
 
   // Cerrar sesión
-  router.get("/cerrarSesion", authController.cerrarSesion);
+  router.get("/cerrarSesion",authController.verificarUsuario, authController.cerrarSesion);
 
   return router;
 };
