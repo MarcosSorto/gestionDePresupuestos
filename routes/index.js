@@ -25,6 +25,12 @@ module.exports = () => {
     categoriaController.listarCategorias
   );
 
+// listar las categorias inhabilitadas
+router.get('/categoria/inhabilitadas',categoriaController.listarCategoriasInhabilitadas);
+
+// habilitar una categoria inhabilitada
+router.post('/categoria/habilitarCategoria/:url',categoriaController.habilitarcategoria);
+
   //mostrar el formulario de editar la categoria
   router.get(
     "/categoria/editarCategoria/:url",
@@ -36,12 +42,16 @@ module.exports = () => {
     "/categoria/editarCategoria/:url",
     categoriaController.editarCategoria
   );
+  
+  // inhabilitar una categoria
+  router.post("/categorias/inhabilitarcategoria/:url",categoriaController.inhabilitarCategoria);
 
   // listar todos los presupuestos de un usuario
   router.get(
     "/presupuesto/listaPresupuestos",
     presupuestoCotroller.listarPresupuestos
   );
+
   //formulario de crear un nuevo presupuesto
   router.get(
     "/presupuesto/nuevoPresupuesto",
