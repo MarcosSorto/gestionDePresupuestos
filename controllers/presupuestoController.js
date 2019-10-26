@@ -69,6 +69,8 @@ exports.formularioCrearPresupuesto = async (req, res, next) => {
 exports.guardarPresupuesto = async (req, res) => {
   // obtenemos el usuario que ha registrado el presupuesto
   const elUsuario = req.user;
+  console.log("estos son los datos qwue tra el presupuesto");
+  console.log(req.body);
 
   const presupuesto = new Presupuesto(req.body);
   presupuesto.registradoPor = elUsuario._id;

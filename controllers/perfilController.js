@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Perfil = mongoose.model("perfil");
+const { validationResult } = require("express-validator");
 
 // Importar los módulos para direcciones (path)
 const path = require("path");
@@ -18,6 +19,7 @@ exports.mostrarFormPerfil = async (req, res, next) => {
     Accion: "Crear Nuevo Perfil"
   });
 };
+
 // Guardar datos de un nuevo perfil de usuario
 exports.guardarPerfil = async (req, res, next) => {
   const perfil = new Perfil(req.body);
@@ -55,9 +57,42 @@ exports.guardarPerfil = async (req, res, next) => {
     perfil.nombre = "defecto.jpg";
   }
 
-  //almacenamos en la base de datos
-  const nuevoPerfil = await perfil.save();
+   // verificar que no hay errores
+   const errores = validationResult(req);
+   const erroresArray = [];
 
+   /*/ si hayerrores
+   if(!errores.isEmpty()){
+     errores.array().map(error=> erroresArray.push(error.msg));
+
+     // enviamos los errores a lavista
+     req.flash("error",erroresArray);
+
+     res.render('/nuevo_Perfil',{
+      tituloPagina: "control de presupuestos",
+      layout: "layout2",
+      Accion: "Crear Nuevo Perfil",
+      message: req.flash()
+     })
+     return;
+   }*/
+  //almacenamos en la base de datos
+  try {
+    const nuevoPerfil = await perfil.save();
+
+  } catch (error) {
+    // ingresamos el error en la lista de errores
+    erroresArray.push(error);
+    req.flash('error',erroresArray);
+
+    res.render('/nuevo_Perfil',{
+      tituloPagina: "control de presupuestos",
+      layout: "layout2",
+      Accion: "Crear Nuevo Perfil",
+      message: req.flash()
+     })
+  }
+  
   //redireccionamos al inicio
   res.redirect("/");
 };

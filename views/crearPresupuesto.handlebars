@@ -7,19 +7,25 @@
             <h3><strong>Crea un nuevo presupuesto</strong></h3>
         </div>
         <div class="row uniform">
-            <div class="6u 12u$(xsmall)">
+            <div class="4u 12u$(small) align-center">
                 <label for="concepto">por concepto de:</label>
                 <input type="text" name="concepto" id="concepto" placeholder="Ingresa el concepto del presupuesto" />
             </div>
 
-            <div class="6u 12u$(xsmall)">
+            <div class="4u 12u$(small) align-center">
                 <div class="select-wrapper">
                     <label for="cantidad">Cantidad</label>
                     <input type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
                         placeholder="Ingresa tu sueldo" />
                 </div>
             </div>
+            <div class="4u 12u$(small) align-center">    
+                <label for="fecha">Fecha</label>
+                <input type="month" min="2019-10"  name="fecha" id="fecha"
+                placeholder="Ingresa el mes" />   
+            </div>
             <div class="12u$">
+                <label for="fecha">Selecciona una categoria</label>
                 <div class="select-wrapper">
                     <select name="categoria" id="categoria">
                         {{#each lasCategorias}}

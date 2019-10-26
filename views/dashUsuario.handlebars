@@ -65,40 +65,40 @@
                                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">#</th>
-                                            <th>Descripción</th>
-                                            <th class="text-center">Cantidad</th>
+                                            <th class="text-center"> </th>
+                                            <th>Concepto</th>
+                                            <th class="text-center">Costo</th>
                                             <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{#each losPresupuestos}}
                                         <tr>
-                                            <td class="text-center text-muted">#1</td>
+                                            <td class="text-center text-muted"> ° </td>
                                             <td>
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
-                                                        <div class="widget-content-left mr-3">
-                                                            <div class="widget-content-left">
-                                                                <img width="40" class="rounded-circle"
-                                                                    src="/assets/css/dash/images/avatars/4.jpg" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget-content-left flex2">
-                                                            <div class="widget-heading">Compra de una
-                                                                computadora nueva</div>
-                                                        </div>
+
+                                                    </div>
+                                                    <div class="widget-content-left flex2">
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td class="text-center">L. 12,500.00</td>
-                                            <td class="text-center">
-                                                <button type="button" id="PopoverCustomT-1"
-                                                    class="btn btn-primary btn-sm">Editar/Eliminar</button>
-                                            </td>
-                                        </tr>
+                            </div>
+                            <div class="widget-heading"><strong>{{concepto}}</strong></div>
+                            </td>
+                            <td class="text-center">{{cantidad}}</td>
+                            <td class="text-center">
 
-                                    </tbody>
-                                </table>
+                                <a href="/presupuesto/editarPresupuesto/{{url}}"
+                                    class="btn btn-primary btn-sm">Editar</a>
+                                <a href="#" data-eliminar="{{id}}" class="btn btn-primary2 btn-sm">Eliminar</a>
+
+                            </td>
+                            </tr>
+                            {{/each}}
+
+                            </tbody>
+                            </table>
                             </div>
 
 

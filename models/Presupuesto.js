@@ -23,6 +23,10 @@ const presupuestoSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  fecha: {
+    type:String,
+    trim:true
+  },
   url: {
     type: String,
     lowercase: true

@@ -7,19 +7,24 @@
             <h3><strong>{{Accion}}</strong></h3>
         </div>
         <div class="row uniform">
-            <div class="6u 12u$(xsmall)">
+            <div class="4u 12u$(small) align-center">
                 <label for="concepto">por concepto de:</label>
                 <input type="text" name="concepto" id="concepto" placeholder="Ingresa el concepto del presupuesto"
                     value='{{elPresupuesto.concepto}}' />
             </div>
 
-            <div class="6u 12u$(xsmall)">
+            <div class="4u 12u$(small) align-center">
                 <div class="select-wrapper">
                     <label for="cantidad">Cantidad</label>
                     <input type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
                         placeholder="Ingresa tu sueldo" value='{{elPresupuesto.cantidad}}' />
                 </div>
             </div>
+            <div class="4u 12u$(small) align-center">    
+                <label for="mes">Mes</label>
+                <input type="month" min="2019-10"  name="fecha" id="fecha" value="{{elPresupuesto.fecha}}"
+                placeholder="Ingresa el mes" />
+             </div>
             <div class="12u$">
                 <div class="select-wrapper">
                     <label for="categoria">Selecciona una categoria</label>
