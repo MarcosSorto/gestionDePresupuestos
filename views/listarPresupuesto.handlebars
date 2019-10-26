@@ -56,8 +56,28 @@
 
                 <div class="row">
                     <div class="col-md-12">
+                        <p>opciones de filtrado</p>
+                        <hr>
+                        <form action="#" method="post" border="1" class="estiloBusqueda">
+                            <a href="/presupuesto/editarPresupuesto/{{url}}" class="btn btn-primary btn-sm">mostrar
+                                todos</a>
+
+                            <label for="fecha">Fecha</label>
+                            <input type="month" min="2019-10" name="fecha" id="fecha" placeholder="Ingresa el mes" />
+                            <label for="fecha">Selecciona una categoria</label>
+
+                            <select name="categoria" id="categoria">
+                                {{#each lasCategorias}}
+                                <option value="{{_id}}">{{nombre}}</option>
+                                {{/each}}
+                            </select>
+                            <a href="#" class="btn btn-primary3 btn-sm">Buscar</a>
+                            <hr>
+                            <br>
+                        </form>
+
                         <div class="main-card mb-3 card">
-                            <div class="card-header">Listado de tus presupuestos -------->
+                            <div class="card-header">Listado de tus presupuestos
                                 <div class="btn-actions-pane-right">
                                     <div role="group" class="btn-group-sm btn-group">
                                         <button class="active btn btn-focus">Todos</button>
