@@ -71,7 +71,7 @@ const accionesListado = e => {
   // verificamos que elboton inhabilitar categoria sea el seleccionado
   if (e.target.dataset.inhabilitar) {
     Swal.fire({
-      title: "¿Está seguro que desea inhabilitar la categoria?",
+      title: "¿Está seguro que desea inhabilitar la categoría?",
       text: "No podrá usarla hasta que la habilite",
       type: "warning",
       showCancelButton: true,
@@ -89,7 +89,7 @@ const accionesListado = e => {
           .post(url, { params: url })
           .then(function(respuesta) {
             if (respuesta.status == 200) {
-              Swal.fire("¡Categoria inhabilitada!", respuesta.data, "success");
+              Swal.fire("¡Categoría inhabilitada!", respuesta.data, "success");
 
               // Eliminar la vacante seleccionada del DOM
               e.target.parentElement.parentElement.parentElement.removeChild(
@@ -111,7 +111,7 @@ const accionesListado = e => {
   // verificamos que el boton habilitar categoria sea el seleccionado
   if (e.target.dataset.habilitar) {
     Swal.fire({
-      title: "¿Está seguro que desea habilitar la categoria?",
+      title: "¿Está seguro que desea habilitar la categoría?",
       text: "podrás usarla nuevamente en tus presupuestos",
       type: "warning",
       showCancelButton: true,
@@ -129,7 +129,7 @@ const accionesListado = e => {
           .post(url, { params: url })
           .then(function(respuesta) {
             if (respuesta.status == 200) {
-              Swal.fire("¡Categoria habilitada!", respuesta.data, "success");
+              Swal.fire("¡Categoría habilitada!", respuesta.data, "success");
 
               // Eliminar la vacante seleccionada del DOM
               e.target.parentElement.parentElement.parentElement.removeChild(

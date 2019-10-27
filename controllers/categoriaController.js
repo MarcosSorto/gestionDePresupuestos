@@ -125,7 +125,7 @@ exports.mostrarCategoria = async (req, res, next) => {
 
   res.render("editarInhabilitarCategoria", {
     layout: "layout4",
-    Accion: "Modifica tus categorias",
+    Accion: "Modifica tus categorías",
     laCategoria,
     elUsuario
   });
@@ -169,7 +169,7 @@ exports.inhabilitarCategoria = async (req, res) => {
     }
   );
   // enviamos la respuesta del servidor
-  res.status(200).send("Categoria inhabilitada satifactoriamente");
+  res.status(200).send("Categoría inhabilitada satifactoriamente");
 };
 
 //Controlador para habilitar una categoria
@@ -189,5 +189,5 @@ exports.habilitarcategoria = async (req, res) => {
     }
   );
   // enviamos la respuesta del servidor
-  res.status(200).send("Categoria Habilitada satifactoriamente");
+  res.status(200).send("Categoría habilitada satifactoriamente");
 };
