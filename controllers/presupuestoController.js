@@ -19,7 +19,7 @@ exports.listarPresupuestos = async (req, res, next) => {
   for (c in losPresupuestos) {
     gasto += losPresupuestos[c].cantidad;
   }
-  console.log(gasto);
+
   const lasCategorias = await Categoria.find({
     registradoPor: elUsuario._id,
     estado: 1
@@ -69,8 +69,6 @@ exports.formularioCrearPresupuesto = async (req, res, next) => {
 exports.guardarPresupuesto = async (req, res) => {
   // obtenemos el usuario que ha registrado el presupuesto
   const elUsuario = req.user;
-  console.log("estos son los datos qwue tra el presupuesto");
-  console.log(req.body);
 
   const presupuesto = new Presupuesto(req.body);
   presupuesto.registradoPor = elUsuario._id;
@@ -137,4 +135,79 @@ exports.eliminarPresupuesto = async (req, res) => {
   presupuesto.remove();
   // enviamos la respuesta del servidor
   res.status(200).send("Presupuesto eliminado satifactoriamente");
+};
+
+// opciones de filtrado para listar resultados de presupuesto
+exports.busquedaPresupuesto = async (req, res, next) => {
+  // obtenemos el usuario actualmente activo.
+  const elUsuario = req.user;
+
+  //verificamos que opciones de filtrado selecciona el usuario.
+  const { fecha, categoria } = req.body;
+  //buscamos por ambos criterios de búsqueda
+  losPresupuestosCosto = await Presupuesto.find({
+    registradoPor: elUsuario._id
+  });
+
+  //verificamos si el usuario filtrará por fecha, por categoria o si utiliza ambos criterios de filtrado
+  var losPresupuestos;
+  if (!fecha == "" && !categoria == "") {
+    //buscamos por ambos criterios de búsqueda
+    losPresupuestos = await Presupuesto.find({
+      registradoPor: elUsuario._id,
+      fecha: fecha,
+      categoria: categoria
+    });
+
+    if (!losPresupuestos) return next();
+  } else if (!fecha == "") {
+    //buscamos solo por la fecha
+    losPresupuestos = await Presupuesto.find({
+      registradoPor: elUsuario._id,
+      fecha: fecha
+    });
+
+    if (!losPresupuestos) return next();
+  } else {
+    //  buscamos solo por la categoria
+    losPresupuestos = await Presupuesto.find({
+      registradoPor: elUsuario._id,
+      categoria: categoria
+    });
+
+    if (!losPresupuestos) return next();
+  }
+
+  // suamos todos los gatso para hacer la relacion sueldo/costo
+  var gasto = 0;
+  for (c in losPresupuestosCosto) {
+    gasto += losPresupuestosCosto[c].cantidad;
+  }
+
+  const lasCategorias = await Categoria.find({
+    registradoPor: elUsuario._id,
+    estado: 1
+  });
+
+  // obtenemos el % de ganancia o el % de pérdida
+  var finanza = 0;
+  const disponible = elUsuario.sueldo - gasto;
+  if (disponible > 0) {
+    finanza = "Ganancia";
+  } else {
+    finanza = "Pérdida";
+  }
+  const porcentaje = ((disponible / elUsuario.sueldo) * 100).toFixed(2);
+
+  // mostramos la vista.
+  res.render("listarPresupuesto", {
+    losPresupuestos,
+    titulo: "Control de presupuestos",
+    elUsuario,
+    layout: "layout3",
+    lasCategorias,
+    gasto,
+    finanza,
+    porcentaje
+  });
 };

@@ -57,21 +57,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p>opciones de filtrado</p>
+                        <p>puedes buscar solo por la fecha, por la categoria o usarlos a ambos</p>
                         <hr>
-                        <form action="#" method="post" border="1" class="estiloBusqueda">
-                            <a href="/presupuesto/editarPresupuesto/{{url}}" class="btn btn-primary btn-sm">mostrar
+                        <form action="/presupuesto/filtrarPresupuesto" method="post" class="estiloBusqueda">
+                            <a href="/presupuesto/listaPresupuestos" class="btn btn-primary btn-sm">mostrar
                                 todos</a>
 
                             <label for="fecha">Fecha</label>
                             <input type="month" min="2019-10" name="fecha" id="fecha" placeholder="Ingresa el mes" />
-                            <label for="fecha">Selecciona una categoria</label>
-
+                            <label for="fecha"> Categoria</label>
                             <select name="categoria" id="categoria">
+                                <option value="0" disabled selected>Selecciona una opción</option>
                                 {{#each lasCategorias}}
                                 <option value="{{_id}}">{{nombre}}</option>
                                 {{/each}}
                             </select>
-                            <a href="#" class="btn btn-primary3 btn-sm">Buscar</a>
+                            <input type="submit" class="btn btn-primary3 btn-sm" value=" Buscar">
                             <hr>
                             <br>
                         </form>
@@ -80,10 +81,8 @@
                             <div class="card-header">Listado de tus presupuestos
                                 <div class="btn-actions-pane-right">
                                     <div role="group" class="btn-group-sm btn-group">
-                                        <button class="active btn btn-focus">Todos</button>
-                                        {{#each lasCategorias}}
-                                        <button class="btn btn-focus">{{nombre}}</button>
-                                        {{/each}}
+
+
 
                                     </div>
                                 </div>

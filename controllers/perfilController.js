@@ -57,42 +57,41 @@ exports.guardarPerfil = async (req, res, next) => {
     perfil.nombre = "defecto.jpg";
   }
 
-   // verificar que no hay errores
-   const errores = validationResult(req);
-   const erroresArray = [];
+  // verificar que no hay errores
+  const errores = validationResult(req);
+  const erroresArray = [];
 
-   /*/ si hayerrores
-   if(!errores.isEmpty()){
-     errores.array().map(error=> erroresArray.push(error.msg));
+  // si hayerrores
+  if (!errores.isEmpty()) {
+    errores.array().map(error => erroresArray.push(error.msg));
 
-     // enviamos los errores a lavista
-     req.flash("error",erroresArray);
+    // enviamos los errores a lavista
+    req.flash("error", erroresArray);
 
-     res.render('/nuevo_Perfil',{
+    res.render("/nuevo_Perfil", {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
       message: req.flash()
-     })
-     return;
-   }*/
+    });
+    return;
+  }
   //almacenamos en la base de datos
   try {
     const nuevoPerfil = await perfil.save();
-
   } catch (error) {
     // ingresamos el error en la lista de errores
     erroresArray.push(error);
-    req.flash('error',erroresArray);
+    req.flash("error", erroresArray);
 
-    res.render('/nuevo_Perfil',{
+    res.render("/nuevo_Perfil", {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
       message: req.flash()
-     })
+    });
   }
-  
+
   //redireccionamos al inicio
   res.redirect("/");
 };

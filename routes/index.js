@@ -117,6 +117,13 @@ module.exports = () => {
     principalController.mostrarDashUsuario
   );
 
+  // opciones de filtrado de presupuestos
+  router.post(
+    "/presupuesto/filtrarPresupuesto",
+    authController.autenticarUsuario,
+    presupuestoCotroller.busquedaPresupuesto
+  );
+
   router.get("/nuevo_Perfil", perfilController.mostrarFormPerfil);
   router.get(
     "/editarPerfil",
