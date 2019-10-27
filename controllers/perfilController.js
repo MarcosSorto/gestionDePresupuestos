@@ -54,7 +54,7 @@ exports.guardarPerfil = async (req, res, next) => {
   } else {
     // usuario no ha seleccionado ninguna foto, se inserta una por defecto.
 
-    perfil.nombre = "defecto.jpg";
+    perfil.imagen = "defecto.jpg";
   }
 
   // verificar que no hay errores
@@ -94,7 +94,7 @@ exports.guardarPerfil = async (req, res, next) => {
   }
 
   //redireccionamos al inicio
-  res.redirect("/");
+  res.redirect("/iniciarSesion");
 };
 
 //mostrando el formulario de editar
@@ -109,6 +109,7 @@ exports.mostrarFormEditarPerfil = (req, res) => {
 // Guardar actualización de datos de perfil de usuario
 exports.editarPerfil = async (req, res, next) => {
   const elPerfil = req.body;
+  console.log(elPerfil);
   var laImagen = "";
   //validamos si se seleccionó otra imagen diferente
   console.log(req.files);
@@ -162,6 +163,7 @@ exports.editarPerfil = async (req, res, next) => {
   }
   elPerfil.imagen = laImagen;
   console.log(elPerfil.imagen);
+
   // guardamos los cambios registrados
   perfil = await Perfil.findOneAndUpdate({ url: req.params.url }, elPerfil, {
     new: true,

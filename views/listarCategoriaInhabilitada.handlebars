@@ -36,7 +36,7 @@
 
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers text-white"><span>L. 10,650.00</span></div>
+                                <div class="widget-numbers text-white"><span>L. {{gasto}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -45,10 +45,10 @@
                     <div class="card mb-3 widget-content bg-grow-early">
                         <div class="widget-content-wrapper text-white">
                             <div class="widget-content-left">
-                                <div class="widget-heading">% de Ganacia/Pérdida</div>
+                                <div class="widget-heading">% de {{finanza}}</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers text-white"><span>46%</span></div>
+                                <div class="widget-numbers text-white"><span>{{porcentaje}} %</span></div>
                             </div>
                         </div>
                     </div>
@@ -72,30 +72,30 @@
                                     </thead>
                                     <tbody>
                                         {{#if lasCategorias.length}}
-                                        
-                                            {{#each lasCategorias}}
-                                            <tr>
-                                                <td class="text-center text-muted"> ° </td>
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
 
-                                                        </div>
-                                                        <div class="widget-content-left flex2">
-                                                        </div>
+                                        {{#each lasCategorias}}
+                                        <tr>
+                                            <td class="text-center text-muted"> ° </td>
+                                            <td>
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+
                                                     </div>
-                                </div>
-                                <div class="widget-heading"><strong>{{nombre}}</strong></div>
-                                </td>
-                                <td class="text-center">{{descripcion}}</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-primary btn-sm" data-habilitar ="{{url}}">habilitar</a>
+                                                    <div class="widget-content-left flex2">
+                                                    </div>
+                                                </div>
+                            </div>
+                            <div class="widget-heading"><strong>{{nombre}}</strong></div>
+                            </td>
+                            <td class="text-center">{{descripcion}}</td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-primary btn-sm" data-habilitar="{{url}}">habilitar</a>
 
-                                </td>
-                                </tr>
-                                {{/each}}
+                            </td>
+                            </tr>
+                            {{/each}}
                             {{else}}
-                                <div class="card-header">aun no tines categorias inhabilitadas </div>
+                            <div class="card-header">aun no tines categorias inhabilitadas </div>
                             {{/if}}
 
                             </tbody>

@@ -120,7 +120,7 @@ module.exports = () => {
   // opciones de filtrado de presupuestos
   router.post(
     "/presupuesto/filtrarPresupuesto",
-    authController.autenticarUsuario,
+    authController.verificarUsuario,
     presupuestoCotroller.busquedaPresupuesto
   );
 

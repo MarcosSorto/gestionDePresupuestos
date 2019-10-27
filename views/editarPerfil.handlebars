@@ -8,7 +8,7 @@
         </div>
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
-                <label for="nombre">Nombre</label>
+                <label required for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" value="{{elUsuario.nombre}}"
                     placeholder="Ingresa tu nombre" />
             </div>
@@ -35,26 +35,25 @@
                 <input type='file' name="imagen" id="imagen" />
             </div>
             <!-- Break -->
-
             <div class="6u$ 12u$">
                 <div>
+                    <label required for="sueldo">Sueldo mensual</label>
+                    <input type="number" min="1" pattern="^[0-9]+" name="sueldo" id="sueldo"
+                        value="{{elUsuario.sueldo}}" placeholder="Ingresa tu sueldo" />
+                </div>
+            </div>
+            <div class="12u$">
+                <div class="select-wrapper">
                     <label for="correo">Correo eletrónico</label>
                     <input type="email" name="correo" id="correo" placeholder="tucorreo@escribe.com"
                         value="{{elUsuario.correo}}" />
-                </div>
-            </div>
-            <div class="6u$ 12u$">
-                <div>
-                    <label for="sueldo">Sueldo mensual</label>
-                    <input type="number" min="1" pattern="^[0-9]+" name="sueldo" id="sueldo"
-                        value="{{elUsuario.sueldo}}" placeholder="Ingresa tu sueldo" />
                 </div>
             </div>
 
             <!-- Break -->
             <div class="12u$">
                 <input type="submit" value="Guardar Cambios" />
-                <input type="button" value="cancelar">
+                <input type="submit" href="/controPersonal" value="Cancelar"></input>
             </div>
         </div>
     </form>

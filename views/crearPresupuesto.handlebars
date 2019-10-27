@@ -9,25 +9,26 @@
         <div class="row uniform">
             <div class="4u 12u$(small) align-center">
                 <label for="concepto">por concepto de:</label>
-                <input type="text" name="concepto" id="concepto" placeholder="Ingresa el concepto del presupuesto" />
+                <input required type="text" name="concepto" id="concepto"
+                    placeholder="Ingresa el concepto del presupuesto" />
             </div>
 
             <div class="4u 12u$(small) align-center">
                 <div class="select-wrapper">
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
-                        placeholder="Ingresa tu sueldo" />
+                    <input required type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
+                        placeholder="Ingresa el costo estimado" />
                 </div>
             </div>
-            <div class="4u 12u$(small) align-center">    
+            <div class="4u 12u$(small) align-center">
                 <label for="fecha">Fecha</label>
-                <input type="month" min="2019-10"  name="fecha" id="fecha"
-                placeholder="Ingresa el mes" />   
+                <input required type="month" min="2019-10" name="fecha" id="fecha" placeholder="Ingresa el mes" />
             </div>
             <div class="12u$">
                 <label for="fecha">Selecciona una categoria</label>
                 <div class="select-wrapper">
-                    <select name="categoria" id="categoria">
+                    <select required name="categoria" id="categoria">
+                        <option value="" disabled>Selecciona una opción</option>
                         {{#each lasCategorias}}
                         <option value="{{_id}}">{{nombre}}</option>
                         {{/each}}
@@ -39,7 +40,6 @@
             <!-- Break -->
             <div class="12u$">
                 <input type="submit" value="Guardar presupuesto" />
-                <input type="button" value="cancelar">
             </div>
         </div>
     </form>

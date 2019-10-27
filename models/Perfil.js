@@ -33,8 +33,7 @@ const perfilSchema = new mongoose.Schema({
   correo: {
     type: String,
     required: "Se requiere de un correo eletrónico unico",
-    trim: true,
-    unique: true
+    trim: true
   },
   password: {
     type: String,

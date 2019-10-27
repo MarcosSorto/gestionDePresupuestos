@@ -62,7 +62,8 @@ exports.formularioCrearPresupuesto = async (req, res, next) => {
   if (!lasCategorias) return next();
   res.render("crearPresupuesto", {
     layout: "layout4",
-    lasCategorias
+    lasCategorias,
+    elUsuario
   });
 };
 

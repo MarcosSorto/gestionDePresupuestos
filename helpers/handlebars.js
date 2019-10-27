@@ -11,5 +11,11 @@ module.exports = {
     }
 
     return (alerts.fn().html = html);
+  },
+
+  categoria: (selected, options) => {
+    return options
+      .fn()
+      .replace(new RegExp(` value="${selected}"`), '$& selected="selected"');
   }
 };

@@ -9,26 +9,27 @@
         <div class="row uniform">
             <div class="4u 12u$(small) align-center">
                 <label for="concepto">por concepto de:</label>
-                <input type="text" name="concepto" id="concepto" placeholder="Ingresa el concepto del presupuesto"
-                    value='{{elPresupuesto.concepto}}' />
+                <input required type="text" name="concepto" id="concepto"
+                    placeholder="Ingresa el concepto del presupuesto" value='{{elPresupuesto.concepto}}' />
             </div>
 
             <div class="4u 12u$(small) align-center">
                 <div class="select-wrapper">
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
+                    <input required type="number" min="1" pattern="^[0-9]+" name="cantidad" id="cantidad"
                         placeholder="Ingresa tu sueldo" value='{{elPresupuesto.cantidad}}' />
                 </div>
             </div>
-            <div class="4u 12u$(small) align-center">    
+            <div class="4u 12u$(small) align-center">
                 <label for="mes">Mes</label>
-                <input type="month" min="2019-10"  name="fecha" id="fecha" value="{{elPresupuesto.fecha}}"
-                placeholder="Ingresa el mes" />
-             </div>
+                <input required type="month" min="2019-10" name="fecha" id="fecha" value="{{elPresupuesto.fecha}}"
+                    placeholder="Ingresa el mes" />
+            </div>
             <div class="12u$">
                 <div class="select-wrapper">
                     <label for="categoria">Selecciona una categoria</label>
-                    <select name="categoria" id="categoria">
+                    <select required name="categoria" id="categoria">
+
                         {{#each lasCategorias}}
                         <option value="{{_id}}">{{nombre}}</option>
                         {{/each}}
@@ -40,7 +41,6 @@
             <!-- Break -->
             <div class="12u$">
                 <input type="submit" value="Guardar cambios" />
-                <input type="button" value="cancelar">
             </div>
         </div>
     </form>

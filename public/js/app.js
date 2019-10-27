@@ -3,12 +3,13 @@ import Swal from "sweetalert2";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Eliminar presupuestos
-  const categoriaYPresupuestosListado = document.querySelector(".table-responsive");
+  const categoriaYPresupuestosListado = document.querySelector(
+    ".table-responsive"
+  );
 
   if (categoriaYPresupuestosListado) {
     categoriaYPresupuestosListado.addEventListener("click", accionesListado);
   }
-
 });
 
 const limpiarAlertas = alertas => {
@@ -29,8 +30,6 @@ const accionesListado = e => {
 
   // verificar que el botón eliminar presupuesto sea el seleccionado.
   if (e.target.dataset.eliminar) {
-    console.log("---------------------------------------------------------");
-    console.log(e.target.dataset.eliminar);
     Swal.fire({
       title: "¿Está seguro de eliminar su presupuesto?",
       text: "No podrá recuperarlo si lo elimina",
@@ -71,7 +70,6 @@ const accionesListado = e => {
 
   // verificamos que elboton inhabilitar categoria sea el seleccionado
   if (e.target.dataset.inhabilitar) {
-
     Swal.fire({
       title: "¿Está seguro que desea inhabilitar la categoria?",
       text: "No podrá usarla hasta que la habilite",
@@ -112,7 +110,6 @@ const accionesListado = e => {
 
   // verificamos que el boton habilitar categoria sea el seleccionado
   if (e.target.dataset.habilitar) {
-
     Swal.fire({
       title: "¿Está seguro que desea habilitar la categoria?",
       text: "podrás usarla nuevamente en tus presupuestos",
