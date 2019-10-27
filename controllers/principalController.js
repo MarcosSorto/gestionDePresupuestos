@@ -46,6 +46,7 @@ exports.mostrarDashUsuario = async (req, res, next) => {
     finanza,
     gasto,
     lasCategorias,
-    losPresupuestos
+    losPresupuestos,
+    porcentaje
   });
 };

@@ -1,104 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>{{tituloPagina}}</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
-    </head>
+
+<head>
+	<title>{{tituloPagina}}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
 <body>
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Control de presupestos </a></div>
-				<a href="#menu">Menu</a>
-			</header>
+	<!-- Header -->
+	<header id="header" class="alt">
+		<div class="logo"><a href="index.html">Control de presupestos </a></div>
+		<a href="#menu">Menu</a>
+	</header>
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/nuevo_Perfil">Perfil</a></li>
-					<li><a href="elements.html">Control de presupuestos</a></li>
-				</ul>
-			</nav>
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/nuevo_Perfil"> Crear Perfil</a></li>
+			<li><a href="/iniciarSesion">Acceder a mi cuenta</a></li>
+		</ul>
+	</nav>
 
-		<!-- Banner -->
-			<section class="banner full">
-				<article>
-					<img src="/images/slide01.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>Tú tienes el control de tus finanzas</p>
-							<h2>Planifica</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="/images/slide02.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>Tú tienes el control de tus finanzas</p>
-							<h2>Organiza</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide03.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Tú tienes el control de tus finanzas</p>
-							<h2>Ahorra</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide04.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Tú tienes el control de tus finanzas</p>
-							<h2>Disfruta</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide05.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Tú tienes el control de tus finanzas</p>
-							<h2>Optimiza</h2>
-						</header>
-					</div>
-				</article>
-			</section>
+	<!-- Banner -->
+	<section class="banner full">
+		<article>
+			<img src="/images/slide01.jpg" alt="" />
+			<div class="inner">
+				<header>
+					<p>Tú tienes el control de tus finanzas</p>
+					<h2>Planifica</h2>
+				</header>
+			</div>
+		</article>
+		<article>
+			<img src="/images/slide02.jpg" alt="" />
+			<div class="inner">
+				<header>
+					<p>Tú tienes el control de tus finanzas</p>
+					<h2>Organiza</h2>
+				</header>
+			</div>
+		</article>
+		<article>
+			<img src="images/slide03.jpg" alt="" />
+			<div class="inner">
+				<header>
+					<p>Tú tienes el control de tus finanzas</p>
+					<h2>Ahorra</h2>
+				</header>
+			</div>
+		</article>
+		<article>
+			<img src="images/slide04.jpg" alt="" />
+			<div class="inner">
+				<header>
+					<p>Tú tienes el control de tus finanzas</p>
+					<h2>Disfruta</h2>
+				</header>
+			</div>
+		</article>
+		<article>
+			<img src="images/slide05.jpg" alt="" />
+			<div class="inner">
+				<header>
+					<p>Tú tienes el control de tus finanzas</p>
+					<h2>Optimiza</h2>
+				</header>
+			</div>
+		</article>
+	</section>
 
-		<div class="contenido-principal contenedor">
-            {{{body}}}
-        </div>
+	<div class="contenido-principal contenedor">
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Untitled. All rights reserved.
-				</div>
-			</footer>
+		{{{body}}}
+	</div>
 
-		<!-- Scripts -->
-			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/assets/js/skel.min.js"></script>
-			<script src="/assets/js/util.js"></script>
-			<script src="/assets/js/main.js"></script>
-             {{!-- Webpack bundle --}}
-            <script src="/dist/bundle.js"></script>s
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+			</ul>
+		</div>
+		<div class="copyright">
+			&copy; Untitled. All rights reserved.
+		</div>
+	</footer>
 
-	</body>    
+	<!-- Scripts -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/assets/js/skel.min.js"></script>
+	<script src="/assets/js/util.js"></script>
+	<script src="/assets/js/main.js"></script>
+	{{!-- Webpack bundle --}}
+	<script src="/dist/bundle.js"></script>s
+
+</body>
+
 </html>

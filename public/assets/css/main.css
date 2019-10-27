@@ -380,7 +380,7 @@
 	}
 
 	.\36 u, .\36 u\24 {
-		width: 50%;
+		width: 70%;
 		clear: none;
 		margin-left: 0;
 	}
@@ -916,10 +916,12 @@
 
 		.row.uniform > * {
 			padding: 1.5rem 0 0 1.5rem;
+			
 		}
 
 		.row.uniform {
 			margin: -1.5rem 0 -1px -1.5rem;
+			
 		}
 
 		.row.\32 00\25 > * {
@@ -935,7 +937,7 @@
 		}
 
 		.row.uniform.\32 00\25 {
-			margin: -3rem 0 -1px -3rem;
+			margin: -3rem 0 -1px rem;
 		}
 
 		.row.\31 50\25 > * {
@@ -983,13 +985,17 @@
 		}
 
 		.row.uniform.\32 5\25 {
-			margin: -0.375rem 0 -1px -0.375rem;
+			margin: -0.375rem 0 -1px 50rem;
 		}
 
 		.\31 2u\28medium\29, .\31 2u\24\28medium\29 {
 			width: 100%;
 			clear: none;
 			margin-left: 0;
+		}
+		.errores p {
+			font-size: 16px;
+			color: crimson;
 		}
 
 		.\31 1u\28medium\29, .\31 1u\24\28medium\29 {

@@ -19,8 +19,8 @@
 	<nav id="menu">
 		<ul class="links">
 			<li><a href="/">Inicio</a></li>
-			<li><a href="/nuevo_Perfil">Perfil</a></li>
-			<li><a href="elements.html">Control de presupuestos</a></li>
+			<li><a href="/nuevo_Perfil">Crear perfil</a></li>
+			<li><a href="/iniciarSesion">Acceder a mi cuenta</a></li>
 		</ul>
 	</nav>
 
@@ -35,12 +35,13 @@
 	</section>
 
 	<div class="contenido-principal contenedor">
-		{{#if messages}}
-		<div class="alertas">
-			{{#mostrarAlertas messages}}
-			{{/mostrarAlertas}}
+		{{#if message}}
+		<div class="align-center errores">
+			<p>{{message.error}}</p>
 		</div>
+
 		{{/if}}
+
 		{{{body}}}
 	</div>
 

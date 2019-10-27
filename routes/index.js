@@ -151,7 +151,7 @@ module.exports = () => {
       check("password", "La contraseña es requerida.")
         .not()
         .isEmpty(),
-      check("confirmpassword", "Debes confirmas tu contraseña")
+      check("confirmpassword", "Debes confirmar tu contraseña")
         .not()
         .isEmpty(),
       check(

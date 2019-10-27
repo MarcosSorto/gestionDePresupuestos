@@ -24,7 +24,7 @@
                                 <div class="widget-heading">Tu sueldo es de:</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers text-white"><span>{{elUsuario.sueldo}}</span></div>
+                                <div class="widget-numbers text-white"><span>L. {{elUsuario.sueldo}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
 
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers text-white"><span>L. 10,650.00</span></div>
+                                <div class="widget-numbers text-white"><span>L. {{gasto}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -46,10 +46,10 @@
                     <div class="card mb-3 widget-content bg-grow-early">
                         <div class="widget-content-wrapper text-white">
                             <div class="widget-content-left">
-                                <div class="widget-heading">% de Ganacia/Pérdida</div>
+                                <div class="widget-heading">% de {{finanza}}</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers text-white"><span>46%</span></div>
+                                <div class="widget-numbers text-white"><span>{{porcentaje}}%</span></div>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                 <option value="{{_id}}">{{nombre}}</option>
                                 {{/each}}
                             </select>
-                            <a href="/presupuesto/filtrarPresupuesto" class="btn btn-primary3 btn-sm">Buscar</a>
+                            <input type="submit" class="btn btn-primary3 btn-sm" value=" Buscar">
                             <hr>
                             <br>
                         </form>

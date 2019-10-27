@@ -65,14 +65,15 @@ exports.guardarPerfil = async (req, res, next) => {
   if (!errores.isEmpty()) {
     errores.array().map(error => erroresArray.push(error.msg));
 
-    // enviamos los errores a lavista
+    // enviamos los errores a la vista
     req.flash("error", erroresArray);
-
-    res.render("/nuevo_Perfil", {
+    const message = req.flash();
+    console.log(message);
+    res.render("crearPerfil", {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
-      message: req.flash()
+      message
     });
     return;
   }
@@ -84,7 +85,7 @@ exports.guardarPerfil = async (req, res, next) => {
     erroresArray.push(error);
     req.flash("error", erroresArray);
 
-    res.render("/nuevo_Perfil", {
+    res.render("crearPerfil", {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
