@@ -6,6 +6,7 @@ const { validationResult } = require("express-validator");
 exports.formularioInicioSesion = (req, res) => {
   res.render("iniciarSesion", {
     nombrePagina: "Iniciar sesión en DevFinder",
-    layout
+    layout: "layout2",
+    messages: req.flash()
   });
 };

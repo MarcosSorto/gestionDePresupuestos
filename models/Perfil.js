@@ -43,7 +43,9 @@ const perfilSchema = new mongoose.Schema({
   url: {
     type: String,
     lowercase: true
-  }
+  },
+  token: String,
+  expira: Date
 });
 
 // hooks para generar la URl

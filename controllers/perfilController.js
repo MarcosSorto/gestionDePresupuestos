@@ -178,6 +178,7 @@ exports.formularioInicioSesion = (req, res) => {
   res.render("iniciarSesion", {
     tituloPagina: "Control de presupuestos",
     layout: "layout2",
-    Accion: "Iniciar Sesión en Control de presupuestos"
+    Accion: "Iniciar Sesión en Control de presupuestos",
+    messages: req.flash()
   });
 };
