@@ -37,7 +37,8 @@
 	<div class="contenido-principal contenedor">
 		{{#if messages}}
 		<div class="align-center errores">
-			<p>{{messages.error}}</p>
+			{{#mostrarAlertas messages}}
+			{{/mostrarAlertas}}
 		</div>
 
 		{{/if}}

@@ -15,9 +15,8 @@ passport.use(
 
       //  verificamos si no esiste el usuario
       if (!usuario) {
-        console.log("correo malo");
         return done(null, false, {
-          message: ["El correo electrónico no es válido, !revisa!"]
+          messages: ["El correo electrónico no es válido, !revisa!"]
         });
       }
 
@@ -27,7 +26,7 @@ passport.use(
       //   contraseña es incorrecta
       if (!verificarPassword) {
         return done(null, false, {
-          message: ["La contraseña es incorrecta"]
+          messages: ["La contraseña es incorrecta"]
         });
       }
 

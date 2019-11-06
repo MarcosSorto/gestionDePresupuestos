@@ -72,7 +72,7 @@ app.use(passport.session());
 app.use(flash());
 
 app.use((req, res, next) => {
-  res.locals.messages = flash.messages;
+  res.locals.messages = req.flash();
   next();
 });
 

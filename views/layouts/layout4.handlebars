@@ -79,6 +79,13 @@
         </div>
 
     </div>
+    {{#if messages}}
+    <div class="align-center errores">
+        {{#mostrarAlertas messages}}
+        {{/mostrarAlertas}}
+    </div>
+
+    {{/if}}
     {{{body}}}
 </div>
 

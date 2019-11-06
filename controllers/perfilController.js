@@ -23,7 +23,6 @@ exports.mostrarFormPerfil = async (req, res, next) => {
 // Guardar datos de un nuevo perfil de usuario
 exports.guardarPerfil = async (req, res, next) => {
   const perfil = new Perfil(req.body);
-  console.log(req.files);
 
   if (req.files) {
     // guardamos la imagen que ha sido seleccionada por el usuario.
@@ -34,7 +33,6 @@ exports.guardarPerfil = async (req, res, next) => {
         if (err) {
           return res.status(500).send({ message: err });
         } else {
-          console.log("listo");
         }
       };
     const url = slug(req.files.imagen.name).toLowerCase();
@@ -67,13 +65,12 @@ exports.guardarPerfil = async (req, res, next) => {
 
     // enviamos los errores a la vista
     req.flash("error", erroresArray);
-    const message = req.flash();
-    console.log(message);
+    const messages = req.flash();
     res.render("crearPerfil", {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
-      message
+      messages
     });
     return;
   }
@@ -89,7 +86,7 @@ exports.guardarPerfil = async (req, res, next) => {
       tituloPagina: "control de presupuestos",
       layout: "layout2",
       Accion: "Crear Nuevo Perfil",
-      message: req.flash()
+      messages: req.flash()
     });
   }
 
@@ -137,7 +134,6 @@ exports.editarPerfil = async (req, res, next) => {
         ),
         err => {
           if (err) throw err;
-          console.log("Borrado completo");
         }
       );
     }
@@ -158,7 +154,6 @@ exports.editarPerfil = async (req, res, next) => {
       }
     );
   } else {
-    console.log("no se realizó ningun cambio");
     laImagen = "defecto.jpg";
   }
   elPerfil.imagen = laImagen;
