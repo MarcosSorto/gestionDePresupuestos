@@ -64,14 +64,14 @@ exports.enviarToken = async (req, res) => {
   const resetUrl = `http://${req.headers.host}/restablecerPassword/${usuario.token}`;
 
   // Enviar la notificación por email
-  console.log("vamos a enviar el correo ****************************");
+
   await enviarEmail.enviar({
     usuario,
     subject: "Reestablecer tu contraseña",
     template: "resetPassword",
     resetUrl
   });
-  console.log("el correo se ha enviado");
+
   // Redireccionar
   req.flash("correcto", [
     "Verifica tu correo electrónico para seguir las instrucciones"
