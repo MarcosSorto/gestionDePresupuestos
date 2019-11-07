@@ -91,7 +91,8 @@ app.use((error, req, res, next) => {
 
   res.render("404", {
     status,
-    message: error.message
+    message: error.message,
+    layout: "layout404"
   });
 });
 
