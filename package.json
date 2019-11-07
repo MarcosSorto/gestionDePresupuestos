@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon ./index",
     "watch": "webpack --w --mode development",
-    "develop": "concurrently \"npm run dev\" \"npm run watch\"",
-    "start": "node ./index.js"
+    "start": "concurrently \"npm run dev\" \"npm run watch\""
   },
   "repository": {
     "type": "git",
